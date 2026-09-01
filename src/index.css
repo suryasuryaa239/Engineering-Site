@@ -1,0 +1,352 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #050505;
+    color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #050505;
+    color: #FFFFFF;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  /* Prevent sticky navbar from obscuring section headings on scroll */
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+/* ==========================================================================
+   DESIGN TOKENS & UTILITIES
+   ========================================================================== */
+
+/* Container System */
+.container-custom {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem; /* 20px on mobile */
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 2rem; /* 32px on tablet */
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2.5rem; /* 40px on desktop */
+    padding-right: 2.5rem;
+  }
+}
+
+/* Section Spacing Token */
+.section-padding {
+  padding-top: 4rem; /* 64px mobile */
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem; /* 96px tablet */
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 8rem; /* 128px desktop */
+    padding-bottom: 8rem;
+  }
+}
+
+/* ==========================================================================
+   BUTTON SYSTEM
+   ========================================================================== */
+
+/* Primary Button: Red Background, White Text, Sharp/Slightly Rounded, Smooth Hover */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #E51B23;
+  color: #FFFFFF;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.75rem;
+  min-height: 44px;
+  border-radius: 2px;
+  border: 1px solid #E51B23;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(229, 27, 35, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #C4131A;
+  border-color: #C4131A;
+  box-shadow: 0 6px 25px rgba(229, 27, 35, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button: Transparent/Dark Background, White Border, Red Hover State */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.75rem;
+  min-height: 44px;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  border-color: #E51B23;
+  color: #E51B23;
+  background-color: rgba(229, 27, 35, 0.05);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Focus Accessibility State */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 2px solid #E51B23;
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   ENGINEERING VISUAL LANGUAGE & ACCENTS
+   ========================================================================== */
+
+/* Technical Grid Line Background */
+.tech-grid-pattern {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Fine Technical Border Card */
+.tech-card {
+  background-color: #0D0D0D;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  transition: all 300ms ease;
+  position: relative;
+}
+
+.tech-card:hover {
+  border-color: rgba(229, 27, 35, 0.4);
+}
+
+/* Red Accent Line Indicator */
+.red-accent-line {
+  width: 24px;
+  height: 2px;
+  background-color: #E51B23;
+  display: inline-block;
+}
+
+/* Technical Upper Label Pill */
+.tech-label {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #E51B23;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Technical Corner Markings */
+.tech-corner-tl {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #E51B23;
+  border-left: 2px solid #E51B23;
+}
+
+.tech-corner-tr {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #E51B23;
+  border-right: 2px solid #E51B23;
+}
+
+/* ==========================================================================
+   ANIMATION SYSTEM
+   ========================================================================== */
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Reusable Animation Utility Classes */
+.animate-fade-in {
+  animation: fadeIn 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fadeUp 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-left {
+  animation: fadeLeft 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-right {
+  animation: fadeRight 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Interactive Utility Classes */
+.hover-lift {
+  transition: transform 300ms ease, border-color 300ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.image-zoom {
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-zoom:hover {
+  transform: scale(1.04);
+}
+
+.underline-hover {
+  position: relative;
+}
+
+.underline-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #E51B23;
+  transition: width 300ms ease;
+}
+
+.underline-hover:hover::after {
+  width: 100%;
+}
+
+/* Respect Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
