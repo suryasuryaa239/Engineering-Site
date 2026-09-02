@@ -65,7 +65,7 @@ export default function Industries() {
   return (
     <section 
       id="industries" 
-      className="relative bg-[#050505] text-[#FFFFFF] border-t border-white/12 section-padding grid-bg-pattern overflow-hidden"
+      className="relative bg-[#050505] text-[#FFFFFF] section-padding grid-bg-pattern overflow-hidden"
     >
       <div className="container-custom relative z-10 space-y-12 lg:space-y-16">
         

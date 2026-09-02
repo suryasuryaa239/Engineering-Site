@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button';
 import TechnicalBadge from './TechnicalBadge';
 import EngineeringImage from './EngineeringImage';
-import { ArrowRight, ChevronRight, Activity, ShieldCheck } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import heroComponentImg from '../assets/images/hero_component.png';
 
 export default function Hero() {
@@ -75,17 +75,7 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Subtle Engineering Indicators */}
-            <div className="pt-4 flex items-center gap-8 text-xs font-mono text-[#A1A1A1] border-t border-white/12">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#E51B23]" />
-                <span>NDA Protected</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Activity className="w-4 h-4 text-[#E51B23]" />
-                <span>Precision CAE Simulation</span>
-              </div>
-            </div>
+
 
           </div>
 

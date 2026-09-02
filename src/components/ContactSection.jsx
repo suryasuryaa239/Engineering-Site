@@ -25,6 +25,19 @@ export default function ContactSection({ onSubmitted }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const whatsappText = encodeURIComponent(
+      `*New Engineering Consultation Request*\n` +
+      `-----------------------------------------\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Phone:* ${formData.phone}\n` +
+      `*Service Focus:* ${formData.service}\n` +
+      `*Project Summary:*\n${formData.message}\n` +
+      `-----------------------------------------`
+    );
+    const whatsappUrl = `https://wa.me/919790990345?text=${whatsappText}`;
+    window.open(whatsappUrl, '_blank');
     
     setTimeout(() => {
       setIsSubmitting(false);
@@ -62,7 +75,7 @@ export default function ContactSection({ onSubmitted }) {
 
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Contact Info Cards & Chennai Map Badge */}
+          {/* Left Column: Contact Info Cards & Location */}
           <div className="lg:col-span-5 space-y-6">
             
             {/* Direct Contact Highlights */}
@@ -76,43 +89,48 @@ export default function ContactSection({ onSubmitted }) {
                 
                 {/* Location */}
                 <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                  <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0 mt-0.5">
                     <MapPin className="w-5 h-5 text-cyan-400" />
                   </div>
                   <div>
                     <div className="text-xs font-mono text-slate-400 uppercase">Headquarters</div>
-                    <div className="text-base font-bold text-white">Chennai, India</div>
-                    <div className="text-xs text-slate-400 mt-0.5">Engineering Hub & Operations Desk</div>
+                    <div className="text-sm font-bold text-white leading-relaxed">
+                      SFNO.141/1A P.NO.54, TNHB, PERUMALPATTU, Chennai-602024
+                    </div>
                   </div>
                 </div>
 
-                {/* Email */}
-                <a 
-                  href="mailto:info@rpcs.co.in" 
-                  className="flex items-start gap-4 p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 transition-colors group"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5 text-blue-400" />
+                {/* Emails */}
+                <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center shrink-0 mt-0.5">
+                      <Mail className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-mono text-slate-400 uppercase mb-1">Official Emails</div>
+                      <div className="flex flex-col space-y-1 text-sm font-bold">
+                        <a href="mailto:contact@rpcs.co.in" className="text-cyan-400 hover:underline">contact@rpcs.co.in</a>
+                        <a href="mailto:pavithra@rpcs.co.in" className="text-cyan-400 hover:underline">pavithra@rpcs.co.in</a>
+                        <a href="mailto:support@rpcs.co.in" className="text-cyan-400 hover:underline">support@rpcs.co.in</a>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-xs font-mono text-slate-400 uppercase">Official Email</div>
-                    <div className="text-base font-bold text-cyan-400 group-hover:underline">info@rpcs.co.in</div>
-                    <div className="text-xs text-slate-400 mt-0.5">Prompt technical reply within 24 hours</div>
-                  </div>
-                </a>
+                </div>
 
-                {/* Phone */}
+                {/* Phone & WhatsApp */}
                 <a 
-                  href="tel:+919790990345" 
-                  className="flex items-start gap-4 p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 transition-colors group"
+                  href="https://wa.me/919790990345" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex items-start gap-4 p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-emerald-500/40 transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
                     <div className="text-xs font-mono text-slate-400 uppercase">Direct Desk & WhatsApp</div>
-                    <div className="text-base font-bold text-emerald-400 group-hover:underline">+91 9790990345</div>
-                    <div className="text-xs text-slate-400 mt-0.5">Mon - Sat: 9:00 AM - 7:00 PM IST</div>
+                    <div className="text-base font-bold text-emerald-400 group-hover:underline">+91-9790990345</div>
+                    <div className="text-xs text-emerald-500 font-mono mt-0.5">Click to chat directly on WhatsApp →</div>
                   </div>
                 </a>
 

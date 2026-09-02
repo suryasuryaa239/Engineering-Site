@@ -96,12 +96,12 @@ export default function Navbar() {
     <header 
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled 
-          ? 'bg-[#050505]/95 backdrop-blur-md border-b border-white/12 shadow-2xl shadow-black/50' 
-          : 'bg-[#050505]/80 backdrop-blur-sm border-b border-white/5'
+          ? 'bg-[#050505] border-b border-white/12 shadow-2xl shadow-black/80' 
+          : 'bg-[#050505] border-b border-white/5'
       }`}
     >
       <nav 
-        className="container-custom h-20 md:h-[88px] flex items-center justify-between"
+        className="container-custom h-20 md:h-[88px] flex items-center justify-between relative z-50"
         aria-label="Main Navigation"
       >
         
@@ -185,7 +185,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 text-white hover:text-[#E51B23] border border-white/12 rounded-sm bg-[#0D0D0D] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E51B23] transition-colors"
+            className="p-2.5 text-white hover:text-[#E51B23] border border-white/12 rounded-sm bg-[#0D0D0D] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E51B23] transition-colors relative z-50"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
           >
@@ -213,10 +213,10 @@ export default function Navbar() {
 
       {/* MOBILE / TABLET: Slide-down Navigation Panel Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[80px] bg-[#050505]/98 border-b border-white/12 backdrop-blur-xl shadow-2xl z-50 animate-fade-in">
-          <div className="container-custom py-8 px-6 space-y-6">
+        <div className="lg:hidden fixed inset-0 top-[80px] w-full h-[calc(100vh-80px)] bg-[#050505] border-t border-white/12 shadow-2xl z-40 overflow-y-auto animate-fade-in">
+          <div className="container-custom py-8 px-6 space-y-6 bg-[#050505] min-h-full flex flex-col justify-between">
             
-            <ul className="flex flex-col space-y-4">
+            <ul className="flex flex-col space-y-3">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.substring(1);
                 return (
@@ -227,19 +227,25 @@ export default function Navbar() {
                         e.preventDefault();
                         handleNavClick(link.href);
                       }}
-                      className={`flex items-center justify-between py-2 text-base font-heading font-bold tracking-wider uppercase transition-colors ${
-                        isActive ? 'text-[#E51B23]' : 'text-white hover:text-[#E51B23]'
+                      className={`flex items-center justify-between py-3 px-4 rounded-sm border transition-colors ${
+                        isActive 
+                          ? 'bg-[#141414] border-[#E51B23] text-white font-bold' 
+                          : 'bg-[#0D0D0D] border-white/12 text-slate-200 hover:border-[#E51B23]/50 hover:text-white'
                       }`}
                     >
-                      <span>{link.name}</span>
-                      {isActive && <span className="w-1.5 h-1.5 bg-[#E51B23] rounded-full" />}
+                      <span className="text-base font-heading tracking-wider uppercase">{link.name}</span>
+                      {isActive ? (
+                        <span className="w-2 h-2 bg-[#E51B23] rounded-full" />
+                      ) : (
+                        <span className="text-xs font-mono text-[#A1A1A1]">→</span>
+                      )}
                     </a>
                   </li>
                 );
               })}
             </ul>
 
-            <div className="pt-4 border-t border-white/12">
+            <div className="pt-6 border-t border-white/12 space-y-4">
               <a
                 href="#contact"
                 onClick={(e) => {
@@ -248,14 +254,14 @@ export default function Navbar() {
                 }}
                 className="w-full block"
               >
-                <Button variant="primary" className="w-full text-sm py-3 justify-center">
+                <Button variant="primary" className="w-full text-sm py-3.5 justify-center shadow-red-glow">
                   GET A CONSULTATION
                 </Button>
               </a>
-            </div>
 
-            <div className="text-[11px] font-mono text-[#A1A1A1] text-center pt-2">
-              Rise Point Consultancy Services • Chennai, India
+              <div className="text-[11px] font-mono text-[#A1A1A1] text-center pt-2">
+                Rise Point Consultancy Services • Chennai, India
+              </div>
             </div>
 
           </div>

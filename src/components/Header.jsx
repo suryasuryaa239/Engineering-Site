@@ -61,16 +61,16 @@ export default function Header({ onOpenQuote, onOpenConsultation }) {
         <div className="container flex justify-between items-center">
           <div className="flex items-center space-x-6">
             <span className="flex items-center gap-1.5 text-slate-300">
-              <MapPin className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Chennai, India</span>
+              <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+              <span>SFNO.141/1A P.NO.54, TNHB, PERUMALPATTU, Chennai-602024</span>
             </span>
-            <a href="mailto:info@rpcs.co.in" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-cyan-400" />
-              <span>info@rpcs.co.in</span>
+            <a href="mailto:contact@rpcs.co.in" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
+              <Mail className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+              <span>contact@rpcs.co.in</span>
             </a>
             <a href="tel:+919790990345" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
-              <Phone className="w-3.5 h-3.5 text-cyan-400" />
-              <span>+91 9790990345</span>
+              <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+              <span>+91-9790990345</span>
             </a>
           </div>
           <div className="flex items-center space-x-4">

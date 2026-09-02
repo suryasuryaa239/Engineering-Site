@@ -35,6 +35,23 @@ export default function QuoteModal({ isOpen, onClose, initialType = 'quote', onS
     e.preventDefault();
     setIsSubmitting(true);
 
+    const whatsappText = encodeURIComponent(
+      `*New RPCS ${mode === 'quote' ? 'Technical Quote Request' : 'Consultation Request'}*\n` +
+      `-----------------------------------------\n` +
+      `*Request Type:* ${mode.toUpperCase()}\n` +
+      `*Engineering Domain:* ${selectedService.toUpperCase()}\n` +
+      `*Industry Sector:* ${selectedIndustry}\n` +
+      `*Timeline:* ${formData.timeline}\n` +
+      `*Full Name:* ${formData.name}\n` +
+      `*Work Email:* ${formData.email}\n` +
+      `*Phone Number:* ${formData.phone}\n` +
+      `*Company:* ${formData.company || 'N/A'}\n` +
+      `*Project Details:*\n${formData.message || 'N/A'}\n` +
+      `-----------------------------------------`
+    );
+    const whatsappUrl = `https://wa.me/919790990345?text=${whatsappText}`;
+    window.open(whatsappUrl, '_blank');
+
     setTimeout(() => {
       setIsSubmitting(false);
       onSubmitted({

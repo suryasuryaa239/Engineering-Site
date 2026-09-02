@@ -5,7 +5,7 @@ export default function MissionVision() {
   return (
     <section 
       id="mission-vision" 
-      className="relative bg-[#0D0D0D] text-[#FFFFFF] border-t border-white/12 section-padding grid-bg-pattern overflow-hidden"
+      className="relative bg-[#0D0D0D] text-[#FFFFFF] section-padding grid-bg-pattern overflow-hidden"
     >
       <div className="container-custom relative z-10">
         

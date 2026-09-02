@@ -179,6 +179,20 @@ export default function CareersPage({ onNavigateHome }) {
       resumeFile: cvFile
     });
 
+    const whatsappText = encodeURIComponent(
+      `*New Job Application - RPCS Careers*\n` +
+      `-----------------------------------------\n` +
+      `*Applicant Name:* ${formData.fullName}\n` +
+      `*Position Applied:* ${formData.position}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Phone:* ${formData.phone}\n` +
+      `*Attached CV File:* ${cvFile.name}\n` +
+      `*Cover Letter / Summary:*\n${formData.coverLetter || 'N/A'}\n` +
+      `-----------------------------------------`
+    );
+    const whatsappUrl = `https://wa.me/919790990345?text=${whatsappText}`;
+    window.open(whatsappUrl, '_blank');
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -195,7 +209,7 @@ export default function CareersPage({ onNavigateHome }) {
     <div className="bg-[#050505] text-[#FFFFFF] min-h-screen pt-24 pb-20">
       
       {/* HERO BANNER */}
-      <section className="relative grid-bg-pattern border-b border-white/12 py-16 lg:py-24 overflow-hidden">
+      <section className="relative grid-bg-pattern py-16 lg:py-24 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#E51B23]/5 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="container-custom relative z-10">
@@ -251,7 +265,7 @@ export default function CareersPage({ onNavigateHome }) {
       </section>
 
       {/* WHY JOIN RPCS PERKS */}
-      <section className="py-16 border-b border-white/12 bg-[#0D0D0D]">
+      <section className="py-16 bg-[#0D0D0D]">
         <div className="container-custom">
           
           <div className="max-w-2xl space-y-3 mb-12">
@@ -288,7 +302,7 @@ export default function CareersPage({ onNavigateHome }) {
       </section>
 
       {/* OPEN ENGINEERING POSITIONS */}
-      <section id="open-roles" className="py-16 lg:py-24 border-b border-white/12">
+      <section id="open-roles" className="py-16 lg:py-24">
         <div className="container-custom space-y-12">
           
           <div className="max-w-3xl space-y-4">

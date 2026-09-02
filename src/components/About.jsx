@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section 
       id="about" 
-      className="relative bg-[#050505] text-[#FFFFFF] border-t border-white/12 section-padding grid-bg-pattern overflow-hidden"
+      className="relative bg-[#050505] text-[#FFFFFF] section-padding grid-bg-pattern overflow-hidden"
     >
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">

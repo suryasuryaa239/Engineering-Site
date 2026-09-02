@@ -83,7 +83,7 @@ export default function Services() {
   return (
     <section 
       id="services" 
-      className="relative bg-[#050505] text-[#FFFFFF] border-t border-white/12 section-padding grid-bg-pattern overflow-hidden"
+      className="relative bg-[#050505] text-[#FFFFFF] section-padding grid-bg-pattern overflow-hidden"
     >
       <div className="container-custom relative z-10 space-y-16 lg:space-y-24">
         

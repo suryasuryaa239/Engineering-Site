@@ -55,6 +55,22 @@ export default function Contact() {
         message: formData.message
       });
 
+      // Construct formatted WhatsApp message and redirect directly to Admin WhatsApp
+      const whatsappText = encodeURIComponent(
+        `*New Engineering Project Inquiry*\n` +
+        `-----------------------------------------\n` +
+        `*Full Name:* ${formData.fullName}\n` +
+        `*Email:* ${formData.email}\n` +
+        `*Phone:* ${formData.phone || 'N/A'}\n` +
+        `*Company:* ${formData.company || 'N/A'}\n` +
+        `*Service Requested:* ${formData.service}\n` +
+        `*Message Details:*\n${formData.message}\n` +
+        `-----------------------------------------`
+      );
+      
+      const whatsappUrl = `https://wa.me/919790990345?text=${whatsappText}`;
+      window.open(whatsappUrl, '_blank');
+
       setSubmitted(true);
       setFormData({
         fullName: '',
@@ -79,7 +95,7 @@ export default function Contact() {
   return (
     <section 
       id="contact" 
-      className="relative bg-[#050505] text-[#FFFFFF] border-t border-white/12 section-padding grid-bg-pattern overflow-hidden"
+      className="relative bg-[#050505] text-[#FFFFFF] section-padding grid-bg-pattern overflow-hidden"
     >
       <div className="container-custom relative z-10 space-y-12 lg:space-y-16">
         
@@ -119,48 +135,68 @@ export default function Contact() {
                 
                 {/* Location */}
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 bg-[#141414] border border-white/12 rounded-sm text-[#E51B23]">
+                  <div className="p-2.5 bg-[#141414] border border-white/12 rounded-sm text-[#E51B23] shrink-0 mt-1">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-[#A1A1A1] uppercase">LOCATION</div>
-                    <div className="text-white font-medium">Chennai, India</div>
+                    <div className="text-xs font-mono text-[#A1A1A1] uppercase mb-0.5">LOCATION</div>
+                    <div className="text-white font-medium leading-relaxed">
+                      SFNO.141/1A P.NO.54, TNHB, PERUMALPATTU, Chennai-602024
+                    </div>
                   </div>
                 </div>
 
-                {/* Email */}
+                {/* Email Addresses */}
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 bg-[#141414] border border-white/12 rounded-sm text-[#E51B23]">
+                  <div className="p-2.5 bg-[#141414] border border-white/12 rounded-sm text-[#E51B23] shrink-0 mt-1">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-[#A1A1A1] uppercase">EMAIL</div>
-                    <a href="mailto:info@rpcs.co.in" className="text-white font-medium hover:text-[#E51B23] transition-colors">
-                      info@rpcs.co.in
-                    </a>
+                    <div className="text-xs font-mono text-[#A1A1A1] uppercase mb-0.5">EMAIL ADDRESSES</div>
+                    <div className="flex flex-col space-y-1">
+                      <a href="mailto:contact@rpcs.co.in" className="text-white font-medium hover:text-[#E51B23] transition-colors">
+                        contact@rpcs.co.in
+                      </a>
+                      <a href="mailto:pavithra@rpcs.co.in" className="text-white font-medium hover:text-[#E51B23] transition-colors">
+                        pavithra@rpcs.co.in
+                      </a>
+                      <a href="mailto:support@rpcs.co.in" className="text-white font-medium hover:text-[#E51B23] transition-colors">
+                        support@rpcs.co.in
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                {/* Phone */}
+                {/* Phone & WhatsApp */}
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 bg-[#141414] border border-white/12 rounded-sm text-[#E51B23]">
+                  <div className="p-2.5 bg-[#141414] border border-white/12 rounded-sm text-[#E51B23] shrink-0 mt-1">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-[#A1A1A1] uppercase">PHONE</div>
-                    <a href="tel:+919790990345" className="text-white font-medium hover:text-[#E51B23] transition-colors">
-                      +91 9790990345
-                    </a>
+                    <div className="text-xs font-mono text-[#A1A1A1] uppercase mb-0.5">PHONE & WHATSAPP</div>
+                    <div className="flex items-center gap-3">
+                      <a href="tel:+919790990345" className="text-white font-medium hover:text-[#E51B23] transition-colors">
+                        +91-9790990345
+                      </a>
+                      <a 
+                        href="https://wa.me/919790990345" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center gap-1 bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/40 px-2 py-0.5 rounded text-xs font-mono font-bold hover:bg-[#25D366] hover:text-black transition-colors"
+                      >
+                        WhatsApp Chat
+                      </a>
+                    </div>
                   </div>
                 </div>
 
                 {/* Website */}
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 bg-[#141414] border border-white/12 rounded-sm text-[#E51B23]">
+                  <div className="p-2.5 bg-[#141414] border border-white/12 rounded-sm text-[#E51B23] shrink-0 mt-1">
                     <Globe className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-[#A1A1A1] uppercase">WEBSITE</div>
+                    <div className="text-xs font-mono text-[#A1A1A1] uppercase mb-0.5">WEBSITE</div>
                     <a href="http://www.r-pcs.co.in" target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:text-[#E51B23] transition-colors">
                       www.r-pcs.co.in
                     </a>

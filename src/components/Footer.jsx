@@ -69,21 +69,39 @@ export default function Footer() {
               HEADQUARTERS
             </h4>
             <ul className="space-y-3 text-xs text-slate-300">
-              <li className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-[#E51B23] shrink-0" />
-                <span>Chennai, India</span>
+              <li className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#E51B23] shrink-0 mt-0.5" />
+                <span className="leading-relaxed">SFNO.141/1A P.NO.54, TNHB, PERUMALPATTU, Chennai-602024</span>
               </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#E51B23] shrink-0" />
-                <a href="mailto:info@rpcs.co.in" className="hover:text-white transition-colors">
-                  info@rpcs.co.in
-                </a>
+              <li className="flex items-start gap-2.5">
+                <Mail className="w-4 h-4 text-[#E51B23] shrink-0 mt-0.5" />
+                <div className="flex flex-col space-y-0.5">
+                  <a href="mailto:contact@rpcs.co.in" className="hover:text-white transition-colors">
+                    contact@rpcs.co.in
+                  </a>
+                  <a href="mailto:pavithra@rpcs.co.in" className="hover:text-white transition-colors">
+                    pavithra@rpcs.co.in
+                  </a>
+                  <a href="mailto:support@rpcs.co.in" className="hover:text-white transition-colors">
+                    support@rpcs.co.in
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#E51B23] shrink-0" />
-                <a href="tel:+919790990345" className="hover:text-white transition-colors">
-                  +91 9790990345
-                </a>
+                <div className="flex items-center gap-2">
+                  <a href="tel:+919790990345" className="hover:text-white transition-colors font-medium">
+                    +91-9790990345
+                  </a>
+                  <a 
+                    href="https://wa.me/919790990345" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-[10px] font-mono text-[#25D366] hover:underline font-bold"
+                  >
+                    [WhatsApp]
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <Globe className="w-4 h-4 text-[#E51B23] shrink-0" />
